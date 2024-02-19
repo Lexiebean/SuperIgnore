@@ -28,6 +28,7 @@ local SS = {
 	["BanOfficer"]			= "Officer Chat",
 	["BanSay"]				= "Say",
 	["BanYell"]				= "Yell",
+	["BanHardcore"]			= "Hardcore",
 	["BanBG"]				= "Battleground",
 	["BanChannel"]			= "Public Channels",
 	["BanEmote"]			= "Emotes",
@@ -516,6 +517,7 @@ SI_IsChannelBanned = function(c)
 	if c == "OFFICER"	then return g.BanOptOfficer end
 	if c == "SAY"		then return g.BanOptSay end
 	if c == "YELL"		then return g.BanOptYell end
+	if c == "HARDCORE"	then return g.BanOptHardcore end
 	if(c == "BATTLEGROUND" or c == "BATTLEGROUND_LEADER")
 						then return g.BanOptBg end
 	if c == "CHANNEL"	then return g.BanOptPublic end
@@ -940,6 +942,7 @@ SI_CreateOptionsFrame = function()
 		{"BanOptParty",		SS.BanParty,	15},
 		{"BanOptGuild",		SS.BanGuild,	15},
 		{"BanOptOfficer",	SS.BanOfficer,	15},
+		{"BanOptHardcore",	SS.BanHardcore,	15},
 		{"BanOptSay",		SS.BanSay,		15},
 		{"BanOptYell",		SS.BanYell,		15},
 		{"BanOptBg",		SS.BanBG,		15},
@@ -1074,6 +1077,7 @@ SI_MainFrame:SetScript("OnEvent", function()
 					BanOptOfficer	= false,
 					BanOptSay		= true,
 					BanOptYell		= true,
+					BanOptHardcore	= true,
 					BanOptBg		= true,
 					BanOptPublic	= true,
 					BanOptEmote		= true,
