@@ -866,13 +866,14 @@ end
 
 
 SI_LogIgnore = function(text, name, source)
-	local logSuccess = SI_LogAdd(text, name)
 	if not source then source = "" end
-
+	local chan = "ThisCantBeAChannel"
 	if tonumber(source) then
 		_,chan = GetChannelName(source)
 	end
 	if chan ~= "LFT" and chan ~= "TTRP" then
+		local logSuccess = SI_LogAdd("["..source.."] " .. text, name)
+
 		if logSuccess and SI_Global.DebugLog then
 			SI_Print("IGNORED: ["..source.."] " .. "\124cffff10f0\124Hplayer:"..name.."\124h["..name.."]\124h\124r" .. ": " .. text)
 		end
